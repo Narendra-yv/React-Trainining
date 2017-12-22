@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Clock</title>
+</head>
+<body>
+    
+    <div id="time"></div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  
+
+    <script>
+
+        // setInterval(function(){
+        //     var now = new Date();
+        //     // console.log(now.getSeconds());
+        //     var htmlContent = "<h2>Current time</h2><p>" +now.getHours() + " : " +now.getMinutes() + " : " + now.getSeconds() + "</p>"
+        //     document.getElementById('time').innerHTML = htmlContent
+        // }, 1000)
+
+        setInterval(function(){
+            var now = new Date();
+            var htmlContent = "<h2>Current time</h2><p>" +now.getHours() + " : " +now.getMinutes() + " : " + now.getSeconds() + "</p>"
+            $('#time').html(htmlContent)
+        },1000)
+
+        
+        
+    </script>
+</body>
+</html>
