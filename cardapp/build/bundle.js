@@ -36,13 +36,23 @@ var Card = React.createClass({
     render: function render() {
         return React.createElement(
             "div",
-            null,
+            { className: "card" },
+            React.createElement("img", { className: "card-img-top", src: "http://via.placeholder.com/318x180", alt: "Card image cap" }),
             React.createElement(
-                "h2",
-                null,
-                "Card Component - Some changes"
-            ),
-            React.createElement(Badge, { caption: "Votes" })
+                "div",
+                { className: "card-body" },
+                React.createElement(
+                    "h4",
+                    { className: "card-title" },
+                    "Card title"
+                ),
+                React.createElement(
+                    "p",
+                    { className: "card-text" },
+                    "Some quick example text to build on the card title and make up the bulk of the card's content."
+                ),
+                React.createElement(Badge, { caption: "Votes" })
+            )
         );
     }
 });

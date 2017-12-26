@@ -3,10 +3,15 @@
 var Card = React.createClass({
     render: function(){
         return (
-            <div>
-             <h2>Card Component - Some changes</h2>
-             <Badge caption="Votes" />   
-            </div>
+        <div className="card">
+        <img className="card-img-top" src="http://via.placeholder.com/318x180" alt="Card image cap"/>
+        <div className="card-body">
+            <h4 className="card-title">Card title</h4>
+            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <Badge caption="Votes" />  
+        </div>
+        </div>
+        
         )
     }
 })
