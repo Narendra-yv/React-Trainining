@@ -1,16 +1,37 @@
-var gulp = require('gulp')
-var concat = require('gulp-concat')
-var babel = require('gulp-babel')
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+//Bundler
+var browserify = require('browserify');
+//Watch for any changes in .jsx file --> Recompile
+var watchify = require('watchify');
+// For transcompilation
+var babelify = require('babelify');
+// Wrapper to gulp.src
+var source = require('vinyl-source-stream')
 
-gulp.task('task1' , function(){
-    console.log('running task 1');
-})
+// npm install --save-dev gulp-util browserify watchify babelify vinyl-source-stream
 
-gulp.task('default' , function(){
-    console.log('running build');
-    gulp.src('./src/**/*.jsx')
-    .pipe(babel())
-    .pipe(concat('bundle.js'))
-    .pipe(gulp.dest('./build'))
+
+gulp.task('default', function() {
+    var bundler = watchify(browserify({
+        entries: ['./src/app.jsx'],
+        // transform: [reactify],
+        transform: [["babelify", {presets: ["es2015","react"]}]],
+        extensions: ['.jsx'],
+        debug: false,
+        cache: {},
+        packageCache: {},
+        fullPaths: true
+    }));
+    function build(file) {
+        if (file) gutil.log('Recompiling ' + file);
+        return bundler
+            .bundle()
+            .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+            .pipe(source('main.js'))
+            .pipe(gulp.dest('./build'));
+    };
+    build();
+    bundler.on('update', build);
 
 })

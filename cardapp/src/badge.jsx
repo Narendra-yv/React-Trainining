@@ -17,3 +17,5 @@ var Badge = React.createClass({
         )
     }
 })
+
+module.exports = Badge

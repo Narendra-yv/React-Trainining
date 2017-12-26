@@ -28,6 +28,8 @@ var Badge = React.createClass({
 });
 "use strict";
 
+
+
 // 1. Create the class
 
 var Card = React.createClass({
@@ -44,7 +46,7 @@ var Card = React.createClass({
                 React.createElement(
                     "h4",
                     { className: "card-title" },
-                    "Card title"
+                    this.props.title
                 ),
                 React.createElement(
                     "p",
@@ -57,8 +59,32 @@ var Card = React.createClass({
     }
 });
 
+// // 2. Create an object of the class
+// var obj = React.createElement(Card, {})
+
+// // 3. Render it to the dom
+// ReactDOM.render(obj, document.getElementById('mount-point'))
+
+
+// 1. Create the class
+
+var CardList = React.createClass({
+    displayName: "CardList",
+
+    render: function render() {
+        return React.createElement(
+            "div",
+            null,
+            React.createElement(Card, { title: "React JS" }),
+            React.createElement(Card, { title: "Angular JS" }),
+            React.createElement(Card, { title: "Can JS" })
+        );
+    }
+});
+
 // 2. Create an object of the class
-var obj = React.createElement(Card, {});
+var obj = React.createElement(CardList, {});
 
 // 3. Render it to the dom
 ReactDOM.render(obj, document.getElementById('mount-point'));
+"use strict";
