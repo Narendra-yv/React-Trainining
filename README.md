@@ -27,3 +27,19 @@
     React vs Jquery
 
     Automate the trans-compilation
+        Gulp - Streaming build system : seq of tasks
+        Transcompile task - 
+            - read the src file with .jsx extensions
+            - transcompile using babel
+            - concat into one file
+            - put into build folder
+            <!-- gulp.src('./src/**/*.jsx')
+            .pipe(babel())
+            .pipe(concat('bundle.js'))
+            .pipe(gulp.dest('./build')) -->
+
+    NodeJS
+        Npm - Node Package Manager 
+        npm init : create a configuration file  - package.json
+        npm install --options <package_name> : npm install --save-dev babel-cli
+        npm install - install packages mentioned in the package.json
