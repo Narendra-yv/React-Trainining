@@ -39,10 +39,19 @@
             .pipe(gulp.dest('./build')) -->
 
         Better build system
-        ES6 version for JS
+        ES6 version for JS -> Class syntax, constructors, methods and fields
 
     NodeJS
         Npm - Node Package Manager 
         npm init : create a configuration file  - package.json
         npm install --options <package_name> : npm install --save-dev babel-cli
         npm install - install packages mentioned in the package.json
+    
+    NPM packages
+        Gulp: Streaming build system, task runner
+            Build an front-end: minifiying, compressing images, transcompiling
+        Babel: transcompiler/transpile - .babelrc
+        Browserfiy: Bundler which can build as specified in a sequence
+
+    MEAN - MongoDB, Express, Angular, NodeJS
+    MERN - MongoDB, Express, React, NodeJS
