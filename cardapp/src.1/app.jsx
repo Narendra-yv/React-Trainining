@@ -1,7 +1,4 @@
-// var CardList = require('./card-list')
-import CardList from './card-list'
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
+var CardList = require('./card-list')
 
 // 2. Create an object of the class
 var obj = React.createElement(CardList, {})

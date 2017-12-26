@@ -38,6 +38,9 @@
             .pipe(concat('bundle.js'))
             .pipe(gulp.dest('./build')) -->
 
+        Better build system
+        ES6 version for JS
+
     NodeJS
         Npm - Node Package Manager 
         npm init : create a configuration file  - package.json
