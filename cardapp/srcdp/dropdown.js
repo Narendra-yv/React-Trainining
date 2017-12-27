@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import ListItem from './list-item'
 import Button from './button'
+import axios from 'axios'
 class Dropdown extends Component {
+
+    componentWillMount() {
+        console.log('Init code.. we want to ajax here..')
+        //AJAX code
+        axios.get('http://localhost:8080/dummydb/courses.json')
+        .then( (response) => {
+            console.log(response);
+            console.log(response.data);
+            this.setState({courses: response.data});
+        })
+        .catch( (error) => {
+            console.log(error);
+        });
+    }
+
     constructor(){
         super();
-        this.state = {show: false, courses: ["Angular", "React", "ES6", "Java"]}
+        console.log('Constructor.. too early for ajax call')
+        // this.state = {show: false, courses: ["Angular", "React", "ES6", "Java"]}
+        this.state = {show: false, courses: []}
     }
 
     toggleShow(){
