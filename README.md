@@ -53,5 +53,17 @@
         Babel: transcompiler/transpile - .babelrc
         Browserfiy: Bundler which can build as specified in a sequence
 
+    Nesting of components
+        child access parent functionalities
+        communication b/w parent-child
+            - child to access props from the parents
+            - parents passing functions as reference to child components
+
     MEAN - MongoDB, Express, Angular, NodeJS
     MERN - MongoDB, Express, React, NodeJS
+
+    axios vs fetch (natively available with latest browser)    
+
+    Routing/SPA
+    Flux, Redux
+    Webpack

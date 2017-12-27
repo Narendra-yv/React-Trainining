@@ -8,8 +8,25 @@ class App extends Component {
         this.state = {todos: [], todo: ''}
     }
     componentWillMount() {
-        axios.get('http://localhost:3000/todos')
-        .then((res) => {
+        fetch('http://localhost:3000/todos')
+        .then((res)=>res.json())
+        .then((data)=> {
+            console.log(data)
+            this.setState({todos: data})
+        })
+        // axios.get('http://localhost:3000/todos')
+        // .then((res) => {
+        //     console.log(res)
+        //     this.setState({todos: res.data})
+        // })
+        // .catch((err) => {console.log(err)})
+    }
+
+    deleteTodo(index){
+        console.log('Delete call - Ajax');
+        console.log(index)
+        axios.delete('http://localhost:3000/todo/' + index, )
+          .then((res) => {
             console.log(res)
             this.setState({todos: res.data})
         })
@@ -29,13 +46,14 @@ class App extends Component {
         .catch((err) => {console.log(err)})
     }
 
+
     handleTodoChange(event){
         // console.log(event.target.value)
         this.setState({todo: event.target.value})
     }
 
     render() {
-        var list = this.state.todos.map((todo,i)=> <li key={i} class="list-group-item">{todo.text}</li>)
+        var list = this.state.todos.map((todo,i)=> <li key={i} class="list-group-item">{todo.text}<span class="glyphicons glyphicons-remove" onClick={this.deleteTodo.bind(this, i)}> X</span></li>)
 
         return (
             <div>

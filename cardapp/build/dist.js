@@ -22619,9 +22619,29 @@ var App = function (_Component) {
         value: function componentWillMount() {
             var _this2 = this;
 
-            _axios2.default.get('http://localhost:3000/todos').then(function (res) {
+            fetch('http://localhost:3000/todos').then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                console.log(data);
+                _this2.setState({ todos: data });
+            });
+            // axios.get('http://localhost:3000/todos')
+            // .then((res) => {
+            //     console.log(res)
+            //     this.setState({todos: res.data})
+            // })
+            // .catch((err) => {console.log(err)})
+        }
+    }, {
+        key: 'deleteTodo',
+        value: function deleteTodo(index) {
+            var _this3 = this;
+
+            console.log('Delete call - Ajax');
+            console.log(index);
+            _axios2.default.delete('http://localhost:3000/todo/' + index).then(function (res) {
                 console.log(res);
-                _this2.setState({ todos: res.data });
+                _this3.setState({ todos: res.data });
             }).catch(function (err) {
                 console.log(err);
             });
@@ -22629,7 +22649,7 @@ var App = function (_Component) {
     }, {
         key: 'addTodo',
         value: function addTodo() {
-            var _this3 = this;
+            var _this4 = this;
 
             console.log('Post call - Ajax');
             console.log(this.state.todo);
@@ -22637,7 +22657,7 @@ var App = function (_Component) {
                 text: this.state.todo
             }).then(function (res) {
                 console.log(res);
-                _this3.setState({ todos: res.data, todo: '' });
+                _this4.setState({ todos: res.data, todo: '' });
             }).catch(function (err) {
                 console.log(err);
             });
@@ -22651,11 +22671,18 @@ var App = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this5 = this;
+
             var list = this.state.todos.map(function (todo, i) {
                 return _react2.default.createElement(
                     'li',
                     { key: i, className: 'list-group-item' },
-                    todo.text
+                    todo.text,
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'glyphicons glyphicons-remove', onClick: _this5.deleteTodo.bind(_this5, i) },
+                        ' X'
+                    )
                 );
             });
 

@@ -10,6 +10,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => res.send('Hello World change!'))
 
 var todos = [
+    {text:'Sample Item'}
 ]
 
 app.get('/todos', function(req, res) {
@@ -23,5 +24,14 @@ app.post('/todo', (req, res)=> {
     res.json(todos);
     //REST Code.. 201
 })
+
+app.delete('/todo/:id', (req, res)=>{
+    console.log(req.params.id)
+    var index = req.params.id;
+    todos.splice(index, 1)
+    res.json(todos);
+})
+
+// app.delete
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
