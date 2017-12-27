@@ -22573,12 +22573,14 @@ module.exports = traverseAllChildren;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/lib/React.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/app.js":[function(require,module,exports){
+},{"./lib/React":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/lib/React.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srctodo/app.js":[function(require,module,exports){
 'use strict';
 
-var _dropdown = require('./dropdown');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var _dropdown2 = _interopRequireDefault(_dropdown);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -22587,77 +22589,6 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_reactDom2.default.render(_react2.default.createElement(_dropdown2.default, { caption: 'Select your course!!' }), document.getElementById('mount-point'));
-
-},{"./dropdown":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/dropdown.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/button.js":[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Button = function (_Component) {
-    _inherits(Button, _Component);
-
-    function Button() {
-        _classCallCheck(this, Button);
-
-        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
-    }
-
-    _createClass(Button, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "button",
-                { onClick: this.props.whenClicked, className: "btn btn-secondary dropdown-toggle", type: "button", id: "dropdownMenuButton", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
-                this.props.caption
-            );
-        }
-    }]);
-
-    return Button;
-}(_react.Component);
-
-exports.default = Button;
-
-},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/dropdown.js":[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _listItem = require('./list-item');
-
-var _listItem2 = _interopRequireDefault(_listItem);
-
-var _button = require('./button');
-
-var _button2 = _interopRequireDefault(_button);
 
 var _axios = require('axios');
 
@@ -22671,128 +22602,100 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Dropdown = function (_Component) {
-    _inherits(Dropdown, _Component);
+var App = function (_Component) {
+    _inherits(App, _Component);
 
-    _createClass(Dropdown, [{
+    function App() {
+        _classCallCheck(this, App);
+
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+        _this.state = { todos: [], todo: '' };
+        return _this;
+    }
+
+    _createClass(App, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
             var _this2 = this;
 
-            console.log('Init code.. we want to ajax here..');
-            //AJAX code
-            _axios2.default.get('http://localhost:8080/dummydb/courses.json').then(function (response) {
-                console.log(response);
-                console.log(response.data);
-                _this2.setState({ courses: response.data });
-            }).catch(function (error) {
-                console.log(error);
+            _axios2.default.get('http://localhost:3000/todos').then(function (res) {
+                console.log(res);
+                _this2.setState({ todos: res.data });
+            }).catch(function (err) {
+                console.log(err);
             });
         }
-    }]);
+    }, {
+        key: 'addTodo',
+        value: function addTodo() {
+            var _this3 = this;
 
-    function Dropdown() {
-        _classCallCheck(this, Dropdown);
-
-        var _this = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this));
-
-        console.log('Constructor.. too early for ajax call');
-        // this.state = {show: false, courses: ["Angular", "React", "ES6", "Java"]}
-        _this.state = { show: false, courses: [] };
-        return _this;
-    }
-
-    _createClass(Dropdown, [{
-        key: 'toggleShow',
-        value: function toggleShow() {
-            // Wrong to change state with setState - > component will not re-render
-            // this.state = {show: false}
-            console.log('in the parent component..');
-            this.setState({ show: !this.state.show });
+            console.log('Post call - Ajax');
+            console.log(this.state.todo);
+            _axios2.default.post('http://localhost:3000/todo', {
+                text: this.state.todo
+            }).then(function (res) {
+                console.log(res);
+                _this3.setState({ todos: res.data, todo: '' });
+            }).catch(function (err) {
+                console.log(err);
+            });
         }
     }, {
-        key: 'handleItemClicked',
-        value: function handleItemClicked(text) {
-            console.log('In the Dropdown parent component', text);
-            this.setState({ buttonCaption: text, show: false });
+        key: 'handleTodoChange',
+        value: function handleTodoChange(event) {
+            // console.log(event.target.value)
+            this.setState({ todo: event.target.value });
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this3 = this;
-
-            var list = this.state.courses.map(function (course, i) {
-                return _react2.default.createElement(_listItem2.default, { key: i, text: course, whenItemClicked: _this3.handleItemClicked.bind(_this3) });
+            var list = this.state.todos.map(function (todo, i) {
+                return _react2.default.createElement(
+                    'li',
+                    { key: i, className: 'list-group-item' },
+                    todo.text
+                );
             });
 
             return _react2.default.createElement(
                 'div',
-                { className: 'dropdown' },
-                _react2.default.createElement(_button2.default, { caption: this.state.buttonCaption || this.props.caption, whenClicked: this.toggleShow.bind(this) }),
+                null,
                 _react2.default.createElement(
                     'div',
-                    { className: this.state.show ? 'dropdown-menu show' : "dropdown-menu", 'aria-labelledby': 'dropdownMenuButton' },
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                        'label',
+                        { htmlFor: 'addTodoItem' },
+                        'Add a todo!!'
+                    ),
+                    _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'addTodoItem', placeholder: 'Buy milk...', value: this.state.todo, onChange: this.handleTodoChange.bind(this) }),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.addTodo.bind(this) },
+                        'Add'
+                    )
+                ),
+                _react2.default.createElement(
+                    'label',
+                    null,
+                    'Display the todo list here'
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'list-group' },
                     list
                 )
             );
         }
     }]);
 
-    return Dropdown;
+    return App;
 }(_react.Component);
 
-exports.default = Dropdown;
+_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('mount-point'));
 
-},{"./button":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/button.js","./list-item":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/list-item.js","axios":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/axios/index.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/list-item.js":[function(require,module,exports){
-'use strict';
+exports.default = App;
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ListItem = function (_Component) {
-    _inherits(ListItem, _Component);
-
-    function ListItem() {
-        _classCallCheck(this, ListItem);
-
-        return _possibleConstructorReturn(this, (ListItem.__proto__ || Object.getPrototypeOf(ListItem)).apply(this, arguments));
-    }
-
-    _createClass(ListItem, [{
-        key: 'handleItemClick',
-        value: function handleItemClick() {
-            console.log('Item is clicked..', this.props.text);
-            this.props.whenItemClicked(this.props.text);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'a',
-                { onClick: this.handleItemClick.bind(this), className: 'dropdown-item', href: '#' },
-                this.props.text
-            );
-        }
-    }]);
-
-    return ListItem;
-}(_react.Component);
-
-exports.default = ListItem;
-
-},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}]},{},["/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/app.js"]);
+},{"axios":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/axios/index.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-dom/index.js"}]},{},["/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srctodo/app.js"]);

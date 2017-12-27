@@ -14,7 +14,7 @@ var source = require('vinyl-source-stream')
 
 gulp.task('default', function() {
     var bundler = watchify(browserify({
-        entries: ['./srcdp/app.js'],
+        entries: ['./srctodo/app.js'],
         // transform: [reactify],
         transform: [["babelify", {presets: ["es2015","react"]}]],
         extensions: ['.js'],

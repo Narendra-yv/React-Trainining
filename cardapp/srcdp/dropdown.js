@@ -7,7 +7,7 @@ class Dropdown extends Component {
     componentWillMount() {
         console.log('Init code.. we want to ajax here..')
         //AJAX code
-        axios.get('http://localhost:8080/dummydb/courses.json')
+        axios.get('http://localhost:3000/courses')
         .then( (response) => {
             console.log(response);
             console.log(response.data);

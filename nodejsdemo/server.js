@@ -1,14 +1,27 @@
 const express = require('express')
+const cors = require('cors')
+const bodyParser = require('body-parser')
 const app = express()
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(cors());
+// parse application/json
+app.use(bodyParser.json())
 
-var courses = [
-    "ANgular from NodeJS", "React", "ECMAScript6", "Ember JS"
+app.get('/', (req, res) => res.send('Hello World change!'))
+
+var todos = [
 ]
 
-app.get('/courses', function(req, res) {
-    res.json(courses);
+app.get('/todos', function(req, res) {
+    res.json(todos);
+})
+
+app.post('/todo', (req, res)=> {
+    var todo = req.body;
+    console.log(todo)
+    todos.push(todo);
+    res.json(todos);
+    //REST Code.. 201
 })
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
