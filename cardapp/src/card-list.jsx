@@ -13,7 +13,6 @@ class CardList extends Component {
             console.log(course);
             return <Card key={i} title={course} />
         })
-
         return (
             <div class="row">
                 {courseList}

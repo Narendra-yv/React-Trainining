@@ -21130,12 +21130,12 @@ module.exports = traverseAllChildren;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/lib/React.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/app.jsx":[function(require,module,exports){
+},{"./lib/React":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/lib/React.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/app.js":[function(require,module,exports){
 'use strict';
 
-var _cardList = require('./card-list');
+var _dropdown = require('./dropdown');
 
-var _cardList2 = _interopRequireDefault(_cardList);
+var _dropdown2 = _interopRequireDefault(_dropdown);
 
 var _react = require('react');
 
@@ -21147,14 +21147,137 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// 2. Create an object of the class
-var obj = _react2.default.createElement(_cardList2.default, {});
+_reactDom2.default.render(_react2.default.createElement(_dropdown2.default, { caption: 'Select your course!!' }), document.getElementById('mount-point'));
 
-// 3. Render it to the dom
-// var CardList = require('./card-list')
-_reactDom2.default.render(obj, document.getElementById('mount-point'));
+},{"./dropdown":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/dropdown.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/button.js":[function(require,module,exports){
+"use strict";
 
-},{"./card-list":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/card-list.jsx","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/badge.jsx":[function(require,module,exports){
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_Component) {
+    _inherits(Button, _Component);
+
+    function Button() {
+        _classCallCheck(this, Button);
+
+        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+    }
+
+    _createClass(Button, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "button",
+                { onClick: this.props.whenClicked, className: "btn btn-secondary dropdown-toggle", type: "button", id: "dropdownMenuButton", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
+                this.props.caption
+            );
+        }
+    }]);
+
+    return Button;
+}(_react.Component);
+
+exports.default = Button;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/dropdown.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _listItem = require('./list-item');
+
+var _listItem2 = _interopRequireDefault(_listItem);
+
+var _button = require('./button');
+
+var _button2 = _interopRequireDefault(_button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Dropdown = function (_Component) {
+    _inherits(Dropdown, _Component);
+
+    function Dropdown() {
+        _classCallCheck(this, Dropdown);
+
+        var _this = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this));
+
+        _this.state = { show: false, courses: ["Angular", "React", "ES6", "Java"] };
+        return _this;
+    }
+
+    _createClass(Dropdown, [{
+        key: 'toggleShow',
+        value: function toggleShow() {
+            // Wrong to change state with setState - > component will not re-render
+            // this.state = {show: false}
+            console.log('in the parent component..');
+            this.setState({ show: !this.state.show });
+        }
+    }, {
+        key: 'handleItemClicked',
+        value: function handleItemClicked(text) {
+            console.log('In the Dropdown parent component', text);
+            this.setState({ buttonCaption: text, show: false });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var list = this.state.courses.map(function (course, i) {
+                return _react2.default.createElement(_listItem2.default, { key: i, text: course, whenItemClicked: _this2.handleItemClicked.bind(_this2) });
+            });
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'dropdown' },
+                _react2.default.createElement(_button2.default, { caption: this.state.buttonCaption || this.props.caption, whenClicked: this.toggleShow.bind(this) }),
+                _react2.default.createElement(
+                    'div',
+                    { className: this.state.show ? 'dropdown-menu show' : "dropdown-menu", 'aria-labelledby': 'dropdownMenuButton' },
+                    list
+                )
+            );
+        }
+    }]);
+
+    return Dropdown;
+}(_react.Component);
+
+exports.default = Dropdown;
+
+},{"./button":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/button.js","./list-item":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/list-item.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/list-item.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -21175,241 +21298,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Badge = function (_Component) {
-    _inherits(Badge, _Component);
+var ListItem = function (_Component) {
+    _inherits(ListItem, _Component);
 
-    function Badge() {
-        _classCallCheck(this, Badge);
+    function ListItem() {
+        _classCallCheck(this, ListItem);
 
-        var _this = _possibleConstructorReturn(this, (Badge.__proto__ || Object.getPrototypeOf(Badge)).call(this));
-
-        console.log('INitialize component.. initalize state');
-        _this.state = { count: 0
-            // this.incrementCount.bind(this)
-        };return _this;
+        return _possibleConstructorReturn(this, (ListItem.__proto__ || Object.getPrototypeOf(ListItem)).apply(this, arguments));
     }
 
-    _createClass(Badge, [{
-        key: 'incrementCount',
-        value: function incrementCount() {
-            this.setState({ count: this.state.count + 1 });
+    _createClass(ListItem, [{
+        key: 'handleItemClick',
+        value: function handleItemClick() {
+            console.log('Item is clicked..', this.props.text);
+            this.props.whenItemClicked(this.props.text);
         }
     }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'button',
-                { onClick: this.incrementCount.bind(this), type: 'button', className: 'btn btn-primary' },
-                this.props.caption,
-                ' ',
-                _react2.default.createElement(
-                    'span',
-                    { className: 'badge badge-light' },
-                    this.state.count
-                )
+                'a',
+                { onClick: this.handleItemClick.bind(this), className: 'dropdown-item', href: '#' },
+                this.props.text
             );
         }
     }]);
 
-    return Badge;
+    return ListItem;
 }(_react.Component);
 
-exports.default = Badge;
+exports.default = ListItem;
 
-// var Badge = React.createClass({
-
-//     getInitialState(){
-//         return {
-//             count: 0
-//         }
-//     },
-//     incrementCount: function(){
-//         this.setState({count: this.state.count + 1})
-//     },
-
-//     render: function(){
-//         return (
-//             <button onClick={this.incrementCount} type="button" className="btn btn-primary">
-//                 {this.props.caption} <span className="badge badge-light">{this.state.count}</span>
-//             </button>
-//         )
-//     }
-// })
-
-// module.exports = Badge
-
-},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/card-list.jsx":[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _card = require('./card');
-
-var _card2 = _interopRequireDefault(_card);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CardList = function (_Component) {
-    _inherits(CardList, _Component);
-
-    function CardList() {
-        _classCallCheck(this, CardList);
-
-        var _this = _possibleConstructorReturn(this, (CardList.__proto__ || Object.getPrototypeOf(CardList)).call(this));
-
-        _this.state = {
-            courses: ["New Stuff", "Angular", "React", "Ember", "ES6"]
-        };
-        return _this;
-    }
-
-    _createClass(CardList, [{
-        key: 'render',
-        value: function render() {
-            var courseList = this.state.courses.map(function (course, i) {
-                console.log(course);
-                return _react2.default.createElement(_card2.default, { key: i, title: course });
-            });
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'row' },
-                courseList
-            );
-        }
-    }]);
-
-    return CardList;
-}(_react.Component);
-
-exports.default = CardList;
-
-// // 1. Create the class
-// var Card = require('./card')
-// var CardList = React.createClass({
-//     getInitialState(){
-//         return 
-//     },
-
-//     render: function(){
-//        var courseList =  this.state.courses.map(function(course, i){
-//             console.log(course);
-//             return <Card key={i} title={course}/>
-//         })
-
-//         return(
-//             <div>
-//                 {courseList}
-//             </div>
-//         ) 
-//     }
-// })
-
-// module.exports = CardList
-
-},{"./card":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/card.jsx","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/card.jsx":[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _badge = require('./badge');
-
-var _badge2 = _interopRequireDefault(_badge);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Card = function (_Component) {
-    _inherits(Card, _Component);
-
-    function Card() {
-        _classCallCheck(this, Card);
-
-        return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
-    }
-
-    _createClass(Card, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'card' },
-                _react2.default.createElement('img', { className: 'card-img-top', src: 'http://via.placeholder.com/318x180', alt: 'Card image cap' }),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'card-body' },
-                    _react2.default.createElement(
-                        'h4',
-                        { className: 'card-title' },
-                        this.props.title
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'card-text' },
-                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-                    ),
-                    _react2.default.createElement(_badge2.default, { caption: 'Votes' })
-                )
-            );
-        }
-    }]);
-
-    return Card;
-}(_react.Component);
-
-exports.default = Card;
-
-// // 1. Create the class
-// var Badge = require('./badge')
-
-// var Card = React.createClass({
-//     render: function(){
-//         return (
-//         <div class="card">
-//         <img class="card-img-top" src="http://via.placeholder.com/318x180" alt="Card image cap"/>
-//         <div class="card-body">
-//             <h4 class="card-title">{this.props.title}</h4>
-//             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//             <Badge caption="Votes" />  
-//         </div>
-//         </div>
-
-//         )
-//     }
-// })
-// module.exports = Card
-
-// // // 2. Create an object of the class
-// // var obj = React.createElement(Card, {})
-
-// // // 3. Render it to the dom
-// // ReactDOM.render(obj, document.getElementById('mount-point'))
-
-},{"./badge":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/badge.jsx","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}]},{},["/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/src/app.jsx"]);
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}]},{},["/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcdp/app.js"]);
