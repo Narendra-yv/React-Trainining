@@ -96,5 +96,5 @@
         2. Control navigation on client side - put guards on protective routes
 
 
-    Flux, Redux 
+    Flux, Redux (Stores) 
     Webpack
