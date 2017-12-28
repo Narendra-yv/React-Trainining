@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import {BrowserRouter, Route, Link} from 'react-router-dom'
-import Home from './components/home'
-import About from './components/about'
+import {BrowserRouter} from 'react-router-dom'
+import Routes from './routes'
+import Header from './header'
+
 class App extends Component {
 
     render() {
@@ -12,12 +13,8 @@ class App extends Component {
             
             <BrowserRouter>
                 <div>
-                <Link to="/">Home</Link> | <Link to="/about">About</Link>
-                <hr/>
-                <a href="/">Home</a> | <a href="/about">About</a>
-                <hr/>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
+                <Header/>
+                <Routes/>
                 </div>
             </BrowserRouter>
             </div>

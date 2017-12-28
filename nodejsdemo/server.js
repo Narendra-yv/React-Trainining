@@ -16,35 +16,17 @@ const dbName = 'tododb';
 
 app.get('/', (req, res) => res.send('Hello World change!'))
 
-var todos = [
-    {text:'Sample Item'}
-]
-
-app.get('/todos', function(req, res) {
-    res.json(todos);
-})
-
-app.post('/todo', (req, res)=> {
-    MongoClient.connect(url, function(err, client) {
-        var todo = req.body;
-        console.log(todo)
-        todos.push(todo);
-        console.log("Connected successfully to db server");
-        const db = client.db(dbName);
-
-        const collection = db.collection('todos');
-        collection.insertMany(todos, function(err, result) {
-            console.log("Inserted todos documents into the collection");
-            // callback(result);
-            res.json(todos);
-          });
-        
-        client.close();
-      });
-
-   
-   
-    //REST Code.. 201
+app.post('/auth', (req, res)=> {
+    console.log(req.body)
+    var email = req.body.email;
+    var pwd = req.body.pwd;
+    console.log(email, pwd)
+    if(email == pwd){
+        res.json({auth: true})
+    }
+    else{
+        res.json({auth: false})
+    }
 })
 
 app.delete('/todo/:id', (req, res)=>{

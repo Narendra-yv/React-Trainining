@@ -81,6 +81,20 @@
 
     Routing/SPA
 
+    Ref: https://reacttraining.com/react-router/
 
-    Flux, Redux
+        1. Composing mutiple pages as a single page
+        2. Page navigation - client side concern
+        3. Programmatic,  <Link/>: Static navigation
+        4. Paramaterized routes
+        5. Nested Routes
+        6. Error cases: NoMAtch/Redirect
+        7. Switch to render the first matching route
+
+    Challenges to Routing:
+        1. SEO: Render the React components on Server side
+        2. Control navigation on client side - put guards on protective routes
+
+
+    Flux, Redux 
     Webpack

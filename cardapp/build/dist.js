@@ -3287,6 +3287,57 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
+},{}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/os-browserify/browser.js":[function(require,module,exports){
+exports.endianness = function () { return 'LE' };
+
+exports.hostname = function () {
+    if (typeof location !== 'undefined') {
+        return location.hostname
+    }
+    else return '';
+};
+
+exports.loadavg = function () { return [] };
+
+exports.uptime = function () { return 0 };
+
+exports.freemem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.totalmem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.cpus = function () { return [] };
+
+exports.type = function () { return 'Browser' };
+
+exports.release = function () {
+    if (typeof navigator !== 'undefined') {
+        return navigator.appVersion;
+    }
+    return '';
+};
+
+exports.networkInterfaces
+= exports.getNetworkInterfaces
+= function () { return {} };
+
+exports.arch = function () { return 'javascript' };
+
+exports.platform = function () { return 'browser' };
+
+exports.tmpdir = exports.tmpDir = function () {
+    return '/tmp';
+};
+
+exports.EOL = '\n';
+
+exports.homedir = function () {
+	return '/'
+};
+
 },{}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/path-to-regexp/index.js":[function(require,module,exports){
 var isarray = require('isarray')
 
@@ -24591,13 +24642,13 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = require('react-router-dom');
 
-var _home = require('./components/home');
+var _routes = require('./routes');
 
-var _home2 = _interopRequireDefault(_home);
+var _routes2 = _interopRequireDefault(_routes);
 
-var _about = require('./components/about');
+var _header = require('./header');
 
-var _about2 = _interopRequireDefault(_about);
+var _header2 = _interopRequireDefault(_header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24633,32 +24684,8 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { to: '/' },
-                            'Home'
-                        ),
-                        ' | ',
-                        _react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { to: '/about' },
-                            'About'
-                        ),
-                        _react2.default.createElement('hr', null),
-                        _react2.default.createElement(
-                            'a',
-                            { href: '/' },
-                            'Home'
-                        ),
-                        ' | ',
-                        _react2.default.createElement(
-                            'a',
-                            { href: '/about' },
-                            'About'
-                        ),
-                        _react2.default.createElement('hr', null),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _about2.default })
+                        _react2.default.createElement(_header2.default, null),
+                        _react2.default.createElement(_routes2.default, null)
                     )
                 )
             );
@@ -24673,7 +24700,7 @@ exports.default = App;
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('mount-point'));
 
-},{"./components/about":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/about.js","./components/home":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/home.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-dom/index.js","react-router-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-router-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/about.js":[function(require,module,exports){
+},{"./header":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/header.js","./routes":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/routes.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-dom/index.js","react-router-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-router-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/about.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24685,6 +24712,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _os = require('os');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24704,12 +24733,31 @@ var About = function (_Component) {
     }
 
     _createClass(About, [{
+        key: 'loadData',
+        value: function loadData() {
+            console.log('Loading a particular city data: ', this.props.match.params.city);
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            console.log('Component will mount');
+            this.loadData();
+        }
+    }, {
+        key: 'componentWillUpdate',
+        value: function componentWillUpdate() {
+            console.log('This is right place to get updates..');
+            this.loadData();
+        }
+    }, {
         key: 'render',
         value: function render() {
+            console.log(this.props.match);
             return _react2.default.createElement(
                 'h2',
                 null,
-                'About page -  html template'
+                'About page -  ',
+                this.props.match.params.city
             );
         }
     }]);
@@ -24719,7 +24767,7 @@ var About = function (_Component) {
 
 exports.default = About;
 
-},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/home.js":[function(require,module,exports){
+},{"os":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/os-browserify/browser.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/home.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24765,4 +24813,472 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}]},{},["/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/app.js"]);
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/login.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Login = function (_Component) {
+    _inherits(Login, _Component);
+
+    function Login() {
+        _classCallCheck(this, Login);
+
+        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this));
+
+        _this.state = { errorMessage: '' };
+        _this.authenticate = _this.authenticate.bind(_this);
+        return _this;
+    }
+
+    _createClass(Login, [{
+        key: 'authenticate',
+        value: function authenticate() {
+            var _this2 = this;
+
+            console.log(this.email.value, this.pwd.value);
+            var obj = { email: this.email.value, pwd: this.pwd.value };
+            fetch('http://localhost:3000/auth', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+
+            }).then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                console.log(data);
+                if (data.auth) {
+                    //Next Page - route to profile page
+                    console.log(_this2.props);
+                    _this2.props.history.push("/profile");
+                } else {
+                    //Display an error message
+                    _this2.setState({ errorMessage: "Invalid user/password!!" });
+                }
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'container' },
+                _react2.default.createElement(
+                    'h2',
+                    { className: 'form-signin-heading' },
+                    'Please sign in'
+                ),
+                _react2.default.createElement(
+                    'strong',
+                    null,
+                    this.state.errorMessage
+                ),
+                _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'inputEmail', className: 'sr-only' },
+                    'Email address'
+                ),
+                _react2.default.createElement('input', { type: 'email', ref: function ref(email) {
+                        return _this3.email = email;
+                    }, id: 'inputEmail', className: 'form-control', placeholder: 'Email address', required: 'true', autoFocus: 'true' }),
+                _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'inputPassword', className: 'sr-only' },
+                    'Password'
+                ),
+                _react2.default.createElement('input', { type: 'password', ref: function ref(pwd) {
+                        return _this3.pwd = pwd;
+                    }, id: 'inputPassword', className: 'form-control', placeholder: 'Password', required: true }),
+                _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-lg btn-primary btn-block', onClick: this.authenticate },
+                    'Sign in'
+                )
+            );
+        }
+    }]);
+
+    return Login;
+}(_react.Component);
+
+exports.default = Login;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/nomatch.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NoMatch = function NoMatch() {
+    return _react2.default.createElement(
+        'h2',
+        null,
+        'The page does not exist !!'
+    );
+};
+exports.default = NoMatch;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/profile.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Profile = function (_Component) {
+    _inherits(Profile, _Component);
+
+    function Profile() {
+        _classCallCheck(this, Profile);
+
+        return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+    }
+
+    _createClass(Profile, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'h2',
+                null,
+                'Welcome User'
+            );
+        }
+    }]);
+
+    return Profile;
+}(_react.Component);
+
+exports.default = Profile;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/user.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _userdisplay = require('./userdisplay');
+
+var _userdisplay2 = _interopRequireDefault(_userdisplay);
+
+var _useredit = require('./useredit');
+
+var _useredit2 = _interopRequireDefault(_useredit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var User = function User(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'h2',
+            null,
+            'Main User Page'
+        ),
+        _react2.default.createElement(
+            'ul',
+            { className: 'nav' },
+            _react2.default.createElement(
+                'li',
+                { className: 'nav-item' },
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { className: 'nav-link', to: '/user/' },
+                    'User Display'
+                )
+            ),
+            _react2.default.createElement(
+                'li',
+                { className: 'nav-item' },
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { className: 'nav-link', to: '/user/edit' },
+                    'User Edit'
+                )
+            )
+        ),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/user', component: _userdisplay2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/user/edit', component: _useredit2.default })
+    );
+};
+
+exports.default = User;
+
+},{"./userdisplay":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/userdisplay.js","./useredit":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/useredit.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-router-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-router-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/userdisplay.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var UserDisplay = function UserDisplay() {
+    return _react2.default.createElement(
+        'h2',
+        null,
+        'User Display component'
+    );
+};
+
+exports.default = UserDisplay;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/useredit.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var UserEdit = function UserEdit() {
+    return _react2.default.createElement(
+        'h2',
+        null,
+        'User Edit component'
+    );
+};
+
+exports.default = UserEdit;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/header.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_Component) {
+    _inherits(Header, _Component);
+
+    function Header() {
+        _classCallCheck(this, Header);
+
+        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    }
+
+    _createClass(Header, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'ul',
+                { className: 'nav' },
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/' },
+                        'Home'
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/about/Delhi' },
+                        'About Delhi'
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/about/Bengaluru' },
+                        'About Bengaluru'
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/login' },
+                        'Log In'
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/user' },
+                        'User'
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/doesnotexist' },
+                        'Does not exist'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Header;
+}(_react.Component);
+
+exports.default = Header;
+
+},{"react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-router-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-router-dom/index.js"}],"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/routes.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _login = require('./components/login');
+
+var _login2 = _interopRequireDefault(_login);
+
+var _profile = require('./components/profile');
+
+var _profile2 = _interopRequireDefault(_profile);
+
+var _about = require('./components/about');
+
+var _about2 = _interopRequireDefault(_about);
+
+var _home = require('./components/home');
+
+var _home2 = _interopRequireDefault(_home);
+
+var _user = require('./components/user');
+
+var _user2 = _interopRequireDefault(_user);
+
+var _nomatch = require('./components/nomatch');
+
+var _nomatch2 = _interopRequireDefault(_nomatch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Routes = function (_Component) {
+    _inherits(Routes, _Component);
+
+    function Routes() {
+        _classCallCheck(this, Routes);
+
+        return _possibleConstructorReturn(this, (Routes.__proto__ || Object.getPrototypeOf(Routes)).apply(this, arguments));
+    }
+
+    _createClass(Routes, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _reactRouterDom.Switch,
+                    null,
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/about/:city', component: _about2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _login2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _user2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _profile2.default }),
+                    _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' })
+                )
+            );
+        }
+    }]);
+
+    return Routes;
+}(_react.Component);
+
+exports.default = Routes;
+
+},{"./components/about":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/about.js","./components/home":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/home.js","./components/login":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/login.js","./components/nomatch":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/nomatch.js","./components/profile":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/profile.js","./components/user":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/components/user.js","react":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react/react.js","react-router-dom":"/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/node_modules/react-router-dom/index.js"}]},{},["/Users/puneetvashisht/work/trainings/reacttrainingforcts/cardapp/srcspa/app.js"]);
