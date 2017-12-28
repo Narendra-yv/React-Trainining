@@ -10,6 +10,10 @@
         Not Pure OO language. Direct objects with classes
         Function are also first class objects
         DOM manipulation
+        Bind function
+        Async
+        Callback vs Promises: Promises are better substitutes to callbacks, they don't expose your functionlity. Also you can chain up your actions using the then statements.
+
     JQuery vs Javascript
     
     First React
@@ -61,9 +65,22 @@
 
     MEAN - MongoDB, Express, Angular, NodeJS
     MERN - MongoDB, Express, React, NodeJS
+    Single stack - JS
 
     axios vs fetch (natively available with latest browser)    
 
+    Controlled components -> DOM <=> State
+    Uncontrolled component
+
+    Mongo DB references:
+        1. https://www.npmjs.com/package/mongodb
+        2. https://docs.mongodb.com/manual/mongo/
+        3. https://docs.mongodb.com/manual/reference/sql-comparison/
+    
+    JS 
+
     Routing/SPA
+
+
     Flux, Redux
     Webpack

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+
 class App extends Component {
+
+    // const baseURL = 'http://localhost:3000';
 
     constructor(){
         super()
         this.state = {todos: [], todo: ''}
+        // this.addTodo = this.addTodo.bind(this)
+
     }
     componentWillMount() {
         fetch('http://localhost:3000/todos')
@@ -34,13 +39,14 @@ class App extends Component {
     }
 
     addTodo(){
-        console.log('Post call - Ajax');
+        console.log('Post call - Ajax', this.todo.value);
         console.log(this.state.todo)
         axios.post('http://localhost:3000/todo', {
-            text: this.state.todo
+            text: this.todo.value
           })
           .then((res) => {
             console.log(res)
+            this.todo.value = ''
             this.setState({todos: res.data, todo:''})
         })
         .catch((err) => {console.log(err)})
@@ -59,7 +65,8 @@ class App extends Component {
             <div>
              <div class="form-group">
                 <label for="addTodoItem">Add a todo!!</label>
-                <input type="text" class="form-control" id="addTodoItem" placeholder="Buy milk..." value={this.state.todo} onChange={this.handleTodoChange.bind(this)}/>
+                {/* <input type="text" class="form-control" id="addTodoItem" placeholder="Buy milk..." value={this.state.todo} onChange={this.handleTodoChange.bind(this)}/> */}
+                <input type="text" ref={(todo)=> this.todo=todo} class="form-control" id="addTodoItem" placeholder="Buy milk..." />
                 <button onClick={this.addTodo.bind(this)}>Add</button>
             </div>    
 
