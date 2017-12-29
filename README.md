@@ -94,7 +94,8 @@
     Challenges to Routing:
         1. SEO: Render the React components on Server side
         2. Control navigation on client side - put guards on protective routes
-
+   
+    Webpack
+        Its a bundler
 
     Flux, Redux (Stores) 
-    Webpack
