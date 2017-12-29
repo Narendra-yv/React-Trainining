@@ -95,7 +95,17 @@
         1. SEO: Render the React components on Server side
         2. Control navigation on client side - put guards on protective routes
    
-    Webpack
-        Its a bundler
+    Webpack 
+        Its a bundler to optimize builds
+        Front end builds have become more complex (SPA)
+        Image compression - load smallers images as urls
+        Style loading
+        Transcompiles
+        Plugins: Extract text plugin
+        Separate libraries code vs own code
+        hash for maintaining versions
+        common chunk plugin
+
+    Webpack vs Browserify
 
     Flux, Redux (Stores) 
